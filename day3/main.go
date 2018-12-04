@@ -20,8 +20,11 @@ func main() {
 	}
 
 	// printFabric()
+
+	// dump out answer to part one
 	fmt.Println(determineOverlap())
 
+	// dump out answer to part two
 	for _, claim := range input {
 		c := parseClaim(claim)
 		o := determineIntact(c)
