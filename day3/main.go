@@ -21,6 +21,29 @@ func main() {
 
 	// printFabric()
 	fmt.Println(determineOverlap())
+
+	for _, claim := range input {
+		c := parseClaim(claim)
+		o := determineIntact(c)
+
+		if o == 0 {
+			fmt.Printf("%d - %d\n", c.ID, o)
+			break
+		}
+	}
+}
+
+func determineIntact(c *Claim) int {
+	overlap := 0
+
+	for i := c.X; i < c.Width+c.X; i++ {
+		for j := c.Y; j < c.Height+c.Y; j++ {
+			if fabric[j][i] == -1 {
+				overlap++
+			}
+		}
+	}
+	return overlap
 }
 
 func determineOverlap() int {
