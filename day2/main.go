@@ -1,13 +1,13 @@
 package main
 
 import (
-	"io/ioutil"
 	"log"
-	"strings"
+
+	"github.com/brianstarke/adventofcode/common"
 )
 
 func main() {
-	input := getInput()
+	input := common.GetInput("input.txt")
 
 	twos, threes := 0, 0
 
@@ -54,12 +54,4 @@ func toCountsMap(i string) map[string]int {
 	}
 
 	return res
-}
-
-func getInput() []string {
-	input, err := ioutil.ReadFile("input.txt")
-	if err != nil {
-		panic(err)
-	}
-	return strings.Split(string(input), "\n")
 }

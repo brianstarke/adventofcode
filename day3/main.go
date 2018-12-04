@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
 	"strconv"
-	"strings"
+
+	"github.com/brianstarke/adventofcode/common"
 )
 
 var input []string
@@ -192,13 +192,5 @@ func printFabric() {
 }
 
 func init() {
-	input = getInput()
-}
-
-func getInput() []string {
-	input, err := ioutil.ReadFile("input.txt")
-	if err != nil {
-		panic(err)
-	}
-	return strings.Split(string(input), "\n")
+	input = common.GetInput("input.txt")
 }

@@ -1,14 +1,14 @@
 package main
 
 import (
-	"io/ioutil"
 	"log"
 	"strconv"
-	"strings"
+
+	"github.com/brianstarke/adventofcode/common"
 )
 
 func main() {
-	input := getInput()
+	input := common.GetInput("input.txt")
 
 	var freq int64
 
@@ -22,12 +22,4 @@ func main() {
 
 	log.Println(freq)
 	return
-}
-
-func getInput() []string {
-	input, err := ioutil.ReadFile("input.txt")
-	if err != nil {
-		panic(err)
-	}
-	return strings.Split(string(input), "\n")
 }

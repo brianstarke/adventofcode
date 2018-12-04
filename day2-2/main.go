@@ -1,15 +1,15 @@
 package main
 
 import (
-	"io/ioutil"
 	"log"
-	"strings"
+
+	"github.com/brianstarke/adventofcode/common"
 )
 
 var input []string
 
 func init() {
-	input = getInput()
+	input = common.GetInput("input.txt")
 }
 
 func main() {
@@ -63,12 +63,4 @@ func getDiffCount(a, b string) int {
 	}
 
 	return cnt
-}
-
-func getInput() []string {
-	input, err := ioutil.ReadFile("input.txt")
-	if err != nil {
-		panic(err)
-	}
-	return strings.Split(string(input), "\n")
 }

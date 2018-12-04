@@ -1,10 +1,10 @@
 package main
 
 import (
-	"io/ioutil"
 	"log"
 	"strconv"
-	"strings"
+
+	"github.com/brianstarke/adventofcode/common"
 )
 
 var freq int64
@@ -25,7 +25,7 @@ func main() {
 }
 
 func calculateFrequencies(freqs map[int64]bool) int64 {
-	input := getInput()
+	input := common.GetInput("input.txt")
 
 	for _, i := range input {
 		num, err := strconv.ParseInt(i, 10, 32)
@@ -41,12 +41,4 @@ func calculateFrequencies(freqs map[int64]bool) int64 {
 		freqs[freq] = true
 	}
 	return 0
-}
-
-func getInput() []string {
-	input, err := ioutil.ReadFile("input.txt")
-	if err != nil {
-		panic(err)
-	}
-	return strings.Split(string(input), "\n")
 }
